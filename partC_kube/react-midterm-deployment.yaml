@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-midterm
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-midterm
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: react-midterm
+    spec:
+      containers:
+        - name: react-midterm
+          image: nuoxu/mid_term_redis_frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendmidterm3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backendmidterm3
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: backendmidterm3
+    spec:
+      containers:
+        - name: backendmidterm3
+          image: nuoxu/mid_term_redis_backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3002
