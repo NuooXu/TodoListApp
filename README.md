@@ -30,4 +30,4 @@ For part C added Redis to cache data.
 2. change the docker image url  
 3. 'minikube start','chmod +x ./start.sh','./start.sh' then it will run 3 service (frontend, backend and redis)  
 4. 'minikube service serviceName' run two times to get the frontend and backend url.  
-5. frontendURL?webapp=backendURL to access the website which run on minikube
+5. frontendURL?webapp=backendURL to access the website which run on minikube （need open cors)
